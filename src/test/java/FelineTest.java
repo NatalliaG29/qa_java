@@ -1,8 +1,6 @@
 import com.example.Feline;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -12,39 +10,36 @@ import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
 
-    @Mock
-    Feline felineMock;
-
     @Test
     public void testGetFamily() {
+        Feline feline = new Feline();
         String expected = "Кошачьи";
-        Mockito.when(felineMock.getFamily()).thenReturn(expected);
-        String actual = felineMock.getFamily();
+        String actual = feline.getFamily();
         assertEquals(expected, actual);
     }
 
     @Test
     public void testEatMeat() throws Exception {
+        Feline feline = new Feline();
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
-        Mockito.when(felineMock.eatMeat()).thenReturn(expectedFood);
-        List<String> actualFood = felineMock.eatMeat();
+        List<String> actualFood = feline.eatMeat();
         assertEquals(expectedFood, actualFood);
     }
 
     @Test
     public void testGetKittens() {
+        Feline feline = new Feline();
         int expected = 1;
-        Mockito.when(felineMock.getKittens()).thenReturn(expected);
-        int actual = felineMock.getKittens();
+        int actual = feline.getKittens();
         assertEquals(expected, actual);
     }
 
     @Test
     public void testGetKittensWithParam() {
+        Feline feline = new Feline();
         int expected = 4;
         int kittensCount = 4;
-        Mockito.when(felineMock.getKittens(kittensCount)).thenReturn(expected);
-        int actual = felineMock.getKittens(4);
+        int actual = feline.getKittens(kittensCount);
         assertEquals(expected, actual);
     }
 }
